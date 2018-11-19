@@ -1,6 +1,6 @@
 # Kelvin-Helmholtz Instabilities
 
-This repository contains a model of the lock-exchange in which kelvin-Helmholtz instabilities are visualized. The physics of the Kelvin-Helmholtz instabilities are clearly explained over here: https://www.youtube.com/watch?v=qgamfo86FQo & https://www.youtube.com/watch?v=mf_143gkKSQ.
+This repository contains a model of a lock-exchange in which kelvin-Helmholtz instabilities are visualized. The physics of the Kelvin-Helmholtz instabilities are clearly explained over here: https://www.youtube.com/watch?v=qgamfo86FQo & https://www.youtube.com/watch?v=mf_143gkKSQ.
 
 ![KH](Images/lock002_KH_P.gif)
 
