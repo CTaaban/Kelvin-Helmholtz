@@ -1,0 +1,64 @@
+!*************HEADING***********************************
+
+! Project name and number:
+PROJECT 'Lock' '002'
+! Project title: Exercise8: Lock exchange current
+
+!***********MODEL INPUT*********************************
+
+! 1D schematisation:
+MODE DYN ONED
+
+! Set computational grid: (where mxc is # of cells in x)
+CGRID  xpc = 0.  ypc = 0.  alpc = 0.  xlenc = 0.9  ylenc = 0.  mxc = 180  myc = 0
+
+! Multi-layered mode:
+VERT 100
+
+! Set and read Input bottom grid:
+INPUTGRID BOTTOM  xpinp = 0.  ypinp = 0.  alpinp = 0.  mxinp = 1  myinp = 0  dxinp = 0.9 dyinp = 0.
+READINPUT BOTTOM  1. 'flat.bot' 1 0 FREE
+! Set and read Salinity grid:
+INPtrans SAL xpinp = 0.  ypinp = 0.  alpinp = 0.  mxinp = 180  myinp = 0  dxinp = 0.9 dyinp = 0.
+READtrans SAL 1. 'salinity.sal' 1 0 FREE
+
+! Set Initial Condition(s):
+INITial ZERO
+
+! Set Boundary Conditions:
+!BOUNDARY SIDE WEST CCW BTYPE DISCHARGE CON 0.
+!BOUNDARY SIDE EAST CCW BTYPE DISCHARGE CON 0.
+
+! Physical parameters:
+! Set bottom friction:
+!FRICTION CHEZY 65.
+! Diffusivity and Viscosity:
+!VISC Horizontal 0.000001
+!VISC Vertical KEPS 0.0000001
+!TRANSPORT diff 0.0001
+
+! Numerical parameters:
+NONHYDrostatic standard
+!NONHYD BOX theta=0.5 SUBG 3 RED 1
+! Space Discretization:
+! Note that energy is conserved:
+DISCRET UPW HEAD
+DISCRET UPW UMOM V NONE
+DISCRET UPW WMOM H NONE
+DISCRET UPW WMOM V NONE
+DISCRET TRANSP H LIM RKAP -1
+DISCRET TRANSP V LIM RKAP -1
+! TIME integration: (semi-implicit method)
+!TIMEI METH IMPLICIT
+
+!************ OUTPUT REQUESTS *************************
+
+! Define output request:
+!BLOCK 'COMPGRID' NOHEAD 'lock.mat' LAY 3 XP SAL OUTPUT 20180602.000000 10 SEC
+BLOCK 'COMPGRID' NOHEAD 'lock.mat' LAY 3 XP ZK SALK OUTPUT 20180602.000000 1 SEC
+
+! Simulate:
+COMPUTE 20180602.000000 0.0001 20180602.000030
+
+! End of command file:
+STOP
