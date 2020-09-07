@@ -10,7 +10,7 @@ The constructed model is a non-hydrostatic RANS (Reynolds-Averaged-Navier-Stokes
 <img src="Images/lock002_KH_t0_P.png" width="1000"/>
 </p>
 
-For the numerical approximations of the advection schemes of all the momentum equations the BDF scheme has been adopted including the energy head conservation in the horizontal direction. Since the salinity concentration is a conserved quantity a Flux-limiter (Minmod) has been applied to prevent unreal results (e.g. negative salinity concentration or larger salinity values w.r.t. beginning concentration). It must be noted that in this RANS model the turbulent fluctuations are not resolved but the average of the velocities and hence the Kelvin-Helmholtz instabilities that arise are the effect of the vertical velocity fluctuations on the average flow and not the the turbulent fluctuations themselves.
+For the numerical approximations of the advection schemes of all the momentum equations the BDF scheme has been adopted including the energy head conservation in the horizontal direction. Since the salinity concentration is a conserved quantity a Flux-limiter (Minmod) has been applied to prevent unreal results (e.g. negative salinity concentration or larger salinity values w.r.t. beginning concentration). It must be noted that in this RANS model the turbulent fluctuations are not resolved but the average of the velocities and hence the Kelvin-Helmholtz instabilities that arise are the effect of the vertical velocity fluctuations on the average flow and not the turbulent fluctuations themselves.
 
 <p align="center">
 <img src="Images/lock002_KH_t9_P.png" width="1000"/>
